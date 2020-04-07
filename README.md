@@ -5,12 +5,12 @@
 ## Status
   
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/monicagg/time-travelogue/master/LICENSE)
-
-//[![npm version](https://img.shields.io/npm/v/startbootstrap-the-big-picture.svg)](https://www.npmjs.com/package/startbootstrap-the-big-picture)
-//[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-the-big-picture.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-the-big-picture)
-//[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-the-big-picture/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-the-big-picture)
-//[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-the-big-picture/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-the-big-picture?type=dev)
-
+<!--
+** [![npm version](https://img.shields.io/npm/v/startbootstrap-the-big-picture.svg)](https://www.npmjs.com/package/startbootstrap-the-big-picture)
+** [![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-the-big-picture.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-the-big-picture)
+** [![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-the-big-picture/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-the-big-picture)
+** [![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-the-big-picture/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-the-big-picture?type=dev)
+-->
 ## Download and Installation
 
 
