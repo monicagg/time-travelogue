@@ -1,0 +1,38 @@
+{
+    "title": "The Big Picture",
+    "name": "startbootstrap-the-big-picture",
+    "version": "4.1.2",
+    "description": "A full page image background with fixed bottom navigation HTML template built with Bootstrap",
+    "keywords": [
+        "css",
+        "sass",
+        "html",
+        "responsive",
+        "theme",
+        "template"
+    ],
+    "homepage": "https://startbootstrap.com/template-overviews/the-big-picture",
+    "bugs": {
+        "url": "https://github.com/BlackrockDigital/startbootstrap-the-big-picture/issues",
+        "email": "feedback@startbootstrap.com"
+    },
+    "license": "MIT",
+    "author": "Start Bootstrap",
+    "contributors": [
+        "David Miller (http://davidmiller.io/)"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BlackrockDigital/startbootstrap-the-big-picture.git"
+    },
+    "dependencies": {
+        "bootstrap": "^4.3.1",
+        "bootstrap-material-design": "^4.1.2",
+        "jquery": "^3.4.1",
+        "leaflet": "^1.5.1"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.26.7",
+        "gulp": "4.0.0"
+    }
+}

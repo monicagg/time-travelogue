@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Town Trails - Welwyn Garden City</title>
+  
+  <!-- core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- leaflet library for interactive maps -->
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css"rel="stylesheet"/>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="vendor/leaflet/leaflet.js"></script>
+  
+  <!-- Custom styles for this template -->
+  <link href="css/time-travelogue.css" rel="stylesheet">
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/maping.js" type="text/javascript"></script>  
+  <script src="wgc/WGC Peartree trail-geojson.js" type="text/javascript"></script>
+  <script src="wgc/WGC Photos-geojson.js" type="text/javascript"></script>
+</head>
+
+<body class="pageCityWalks">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="#">Welwyn Garden City</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">City Map
+            <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <section>
+    <div class="container">
+      <div class="row">
+		  <div class="col-lg-8">
+			  <h3 class="mt-5">Peartree Trail</h3>
+			  <p>Follow the routes to find out about town's heritage</p>
+		  </div>
+		   
+	    </div>
+	    
+		<div id="mapViewid"></div>
+		
+		<script>
+			
+      var mymap = mymap('mapViewid',geoJSONData,16);
+      
+			showPhotos($('#selectYears').val(),wgcPhotos).addTo(mymap);
+
+		</script>
+		
+		<br/><br/><br/>
+      </div> <!-- container -->
+  </section>
+
+</body>
+
+</html>
