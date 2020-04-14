@@ -79,12 +79,15 @@
 		            
       <!-- Horizontal Steppers -->
       <div class="row">
+         <div class="col-lg-1 align-self-top">  
+           <div><a href="#" onclick="showNextSteps(globalPrevStep,globalNrSteps,-1);"><span class="circle">&laquo;back</span></a></div>
+         </div>
           <div class="col-lg">
             <!-- Stepers Wrapper -->
             <ul class="stepper stepper-horizontal" id="RouteSteps">
         
               <!-- First Step -->
-              <li class="completed" id="RouteStep1">
+              <li class="completed">
                 <a href="#!">
                   <span class="circle">1</span>
                   <span class="label">Location of <br/>the First Railway Station</span>
@@ -92,7 +95,7 @@
               </li>
         
               <!-- Second Step -->
-              <li class="active" id="RouteStep2">
+              <li class="active">
                 <a href="#!">
                   <span class="circle">2</span>
                   <span class="label">'Grand Boulevard' and <br/>Howard Memorial</span>
@@ -100,7 +103,7 @@
               </li>
         
               <!-- Third Step -->
-              <li class="warning" id="RouteStep3">
+              <li class="warning">
                 <a href="#!">
                   <span class="circle">3</span>
                   <span class="label">Third step</span>
@@ -110,7 +113,9 @@
             <!-- /.Stepers Wrapper -->
           </div>
           <!-- /.Horizontal Steppers -->
-	       
+         <div class="col-lg-1 align-self-top">  
+           <div><a href="#" onclick="showNextSteps(globalNextStep,globalNrSteps,1);"><span class="circle">forward&raquo;</span></a></div>
+         </div>
 	       <div class="col-lg-3">
           <div id="mapThumbid"></div>
          </div>
@@ -157,34 +162,49 @@
   
   var maxSteps = geoJSONData.features.length;
   console.log("maxSteps = " + maxSteps);
+  var globalCurrentStep = 0;
+  var globalNextStep = 0;
+  var globalPrevStep = 0;
   
-  function showNextSteps(currentStep, nrSteps) {
+  function showNextSteps(currentStep, nrSteps, direction) {
     if (!currentStep) {
         currentStep = 0;
     }
     if (!nrSteps) {
         nrSteps = 3;
     }
-    
+    if (!direction) {
+        direction = 1;
+    }
+    if (direction==-1 && currentStep>0) {
+      globalNextStep = Math.ceil((currentStep+1)/nrSteps)*nrSteps;
+      globalPrevStep = globalNextStep - 2*nrSteps;
+    }
     if (routeJSON) {
         var stepsElems = $('#RouteSteps li').each( function(index, elem) {
           console.log("elem index=" + index);
           $elem=$(elem);
-          console.log("elem html=" + $elem.html());
           currentIndex = currentStep % nrSteps;
-          console.log("currentIndex =" + currentIndex);
+          console.log("currentStep to show = " + currentStep);
           if (index >= currentIndex && index < (currentIndex+nrSteps)) {
-            console.log("elem find=" + $elem.find('a span:last-child').html());
             $elem.find('a span:first-child').text(currentStep+1);
             $elem.find('a span:last-child').text(routeJSON[currentStep].properties.name);
           }
-          console.log("currentStep in show before ++ = " + currentStep);
           currentStep++;
           if (currentStep>=maxSteps) {
             return;
-          }
+          } 
         });
     }
+    if (direction==1) {
+        globalNextStep = Math.floor((currentStep+1)/nrSteps)*nrSteps;
+        globalPrevStep = globalNextStep - 2*nrSteps;
+    }
+    if (globalPrevStep<0) {
+        globalPrevStep = 0;
+    }
+    console.log("globalPrevStep=" + globalPrevStep);
+    console.log("globalNextStep=" + globalNextStep);
   }
   
   $('#RouteSteps li').click( function() {
@@ -194,11 +214,8 @@
       if ( $currentTarget.is( "li" ) ) {
         currentStep = $currentTarget.find('span:first-child').html()-1;
         coordinates = routeJSON[currentStep].geometry.coordinates;
-        //coordinates are first longitude then latitude
+        //coordinates - first longitude then latitude
         currentMap.showPopup(coordinates, routeJSON[currentStep].properties.name);
-        if ((currentStep+1)%globalNrSteps==0) {
-          showNextSteps(currentStep+1,globalNrSteps);    
-        }
       }
     });
   
